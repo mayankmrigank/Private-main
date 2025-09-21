@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smart Attendance Management System Design System */
+@layer base {
+  :root {
+    /* Core colors */
+    --background: 0 0% 98%;
+    --foreground: 216 12% 8%;
+    
+    /* Student theme - Blue accent */
+    --student-primary: 217 91% 60%;
+    --student-primary-foreground: 0 0% 100%;
+    --student-secondary: 213 100% 96%;
+    --student-muted: 214 32% 91%;
+    
+    /* Teacher theme - Green accent */
+    --teacher-primary: 142 71% 45%;
+    --teacher-primary-foreground: 0 0% 100%;
+    --teacher-secondary: 138 76% 97%;
+    --teacher-muted: 143 64% 24%;
+    
+    /* Admin theme - Purple accent */
+    --admin-primary: 262 83% 58%;
+    --admin-primary-foreground: 0 0% 100%;
+    --admin-secondary: 270 100% 98%;
+    --admin-muted: 263 70% 50%;
+
+    /* Card and surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 216 12% 8%;
+    
+    /* Interactive elements */
+    --border: 214 32% 91%;
+    --input: 0 0% 100%;
+    --ring: 217 91% 60%;
+    
+    /* Status colors */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Text colors */
+    --muted-foreground: 215 16% 47%;
+    --accent-foreground: 216 12% 8%;
+    
+    /* Gradients */
+    --gradient-student: linear-gradient(135deg, hsl(217 91% 60%), hsl(213 88% 73%));
+    --gradient-teacher: linear-gradient(135deg, hsl(142 71% 45%), hsl(142 69% 58%));
+    --gradient-admin: linear-gradient(135deg, hsl(262 83% 58%), hsl(262 80% 70%));
+    
+    /* Shadows */
+    --shadow-soft: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Role-based button variants */
+  .btn-student {
+    @apply bg-[hsl(var(--student-primary))] text-[hsl(var(--student-primary-foreground))] hover:bg-[hsl(var(--student-primary))]/90 shadow-[var(--shadow-soft)];
+  }
+  
+  .btn-teacher {
+    @apply bg-[hsl(var(--teacher-primary))] text-[hsl(var(--teacher-primary-foreground))] hover:bg-[hsl(var(--teacher-primary))]/90 shadow-[var(--shadow-soft)];
+  }
+  
+  .btn-admin {
+    @apply bg-[hsl(var(--admin-primary))] text-[hsl(var(--admin-primary-foreground))] hover:bg-[hsl(var(--admin-primary))]/90 shadow-[var(--shadow-soft)];
+  }
+
+  /* Card variants */
+  .card-soft {
+    @apply bg-[hsl(var(--card))] rounded-[var(--radius)] shadow-[var(--shadow-soft)] border border-[hsl(var(--border))];
+  }
+  
+  .card-medium {
+    @apply bg-[hsl(var(--card))] rounded-[var(--radius)] shadow-[var(--shadow-medium)] border border-[hsl(var(--border))];
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-student {
+    background: var(--gradient-student);
+  }
+  
+  .bg-gradient-teacher {
+    background: var(--gradient-teacher);
+  }
+  
+  .bg-gradient-admin {
+    background: var(--gradient-admin);
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
